@@ -13,7 +13,7 @@ It has the following features:
 	collection (using the Apache Lucene library).
 -	eBC allows to search the full-text index.
 
-The [manual](http://homepages.thm.de/~hg11260/ebc.pdf) is available
+The [manual](http://homepages.thm.de/~hg11260/mat/ebc.pdf) is available
 from the projects [homepage](http://homepages.thm.de/~hg11260/ebc.html).
 
 The sources are available from [Github](https://github.com/esb-dev/eBC).
