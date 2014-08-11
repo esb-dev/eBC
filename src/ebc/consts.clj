@@ -15,7 +15,7 @@
           :cpr Copyright string"}
   ;; don't forget to update the revision in ebc.ps1 too
   ebc-rev
-  {:rev "4.1 (2014-07-20)"
+  {:rev "4.1 (2014-08-10)"
    :ver "This is eBC (eBooks Collection) Rev 4.1"
    :cpr "Copyright (c) 2003 - 2014 by Burkhardt Renz, THM"})
 
