@@ -180,8 +180,9 @@
 (defn ddata
   [books filter-fn]
   (let [dats (dates books filter-fn)
-        grp (group-by :date dats)]
-    (map #(hash-map :title (key %) :links (val %)) grp)))
+        grp (group-by :date dats)
+        grp2 (sort #(* -1 (compare (key %1) (key %2))) grp)]
+    (map #(hash-map :title (key %) :links (val %)) grp2)))
 
 
 ;; data for cats sorted with respect to topics and authors
