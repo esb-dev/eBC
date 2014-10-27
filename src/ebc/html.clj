@@ -185,14 +185,15 @@
 ;; Generate category pages
 
 (defsnippet clink "ebc-links.html" [:.clink]
-  [{:keys [path sort-title type sort-authors ext size]} prev]
+  [{:keys [path sort-title type sort-authors ext size date]} prev]
   [:a]       (set-attr :href path)
   [:#title]  (content (sort-str sort-title))
   [:#important] (if (= type "x") (content " "))
   [:b]       (if (= (sort-str sort-authors) (sort-str (:sort-authors prev))) 
                (content "--:") (content (str (sort-str sort-authors) ":")))
   [:#ext]    (content ext)
-  [:#size]   (content size))
+  [:#size]   (content size)
+  [:#date]   (content date))
 
 (defsnippet clink-sec "ebc-links.html" {[:#subject-links :> :h2] [:#subject-links :> :p]}
   [{:keys [title links]}]
