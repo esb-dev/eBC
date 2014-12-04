@@ -24,11 +24,12 @@
 
 #_(set! *warn-on-reflection* true)
 
-;; Read ebook collection basedirs from env, they are separated by ';'
+;; Read ebook collection basedirs from .ebc.config in the user's home directory
 (def ebc-basedirs
-  (if-let [ebc-env-entry (System/getenv c/ebc-env-entry)]
-    (str/split ebc-env-entry #";")
-    []))
+  (let [ebcconfig-name (str (System/getProperty "user.home") "/.ebcconfig")
+        ebcconfig-content (read-string (slurp ebcconfig-name))]
+    (:basedirs ebcconfig-content)))
+
 
 ;; Disable and enable buttons during long running tasks
 (defn- disable
@@ -158,7 +159,7 @@
 (defn frame-content []
   (sm/mig-panel :constraints ["insets 24 18 24 18", "[132!][132!][132!][132!]", "[36!][36!][36!][36!][36!]"]
     :items [
-      [ (sc/button :action choose-action :size [260 :by 26])     "cell 0 0 2 1"]
+      [ (sc/button :action choose-action :size [260 :by 36])     "cell 0 0 2 1"]
       [ (sc/combobox :id :ebc :editable? true
                      :model ebc-basedirs :size [260 :by 26])     "cell 2 0 2 1"] 
       [ (sc/label  :text "Search criteria")                      "cell 1 1, align right, gapright 12"]
