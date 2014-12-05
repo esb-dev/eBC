@@ -26,9 +26,11 @@
 
 ;; Read ebook collection basedirs from .ebc.config in the user's home directory
 (def ebc-basedirs
-  (let [ebcconfig-name (str (System/getProperty "user.home") "/.ebcconfig")
-        ebcconfig-content (read-string (slurp ebcconfig-name))]
-    (:basedirs ebcconfig-content)))
+  (try
+    (let [ebcconfig-name (str (System/getProperty "user.home") "/.ebcconfig")
+          ebcconfig-content (read-string (slurp ebcconfig-name))]
+      (:basedirs ebcconfig-content))
+    (catch Exception e [])))
 
 
 ;; Disable and enable buttons during long running tasks
