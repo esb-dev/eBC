@@ -15,9 +15,9 @@
           :cpr Copyright string"}
   ;; don't forget to update the revision in ebc.ps1 too
   ebc-rev
-  {:rev "4.2.0 (2014-12-04)"
-   :ver "This is eBC (eBooks Collection) Rev 4.2.0"
-   :cpr "Copyright (c) 2003 - 2014 by Burkhardt Renz, THM"})
+  {:rev "4.2.1 (2015-03-16)"
+   :ver "This is eBC (eBooks Collection) Rev 4.2.1"
+   :cpr "Copyright (c) 2003 - 2015 by Burkhardt Renz, THM"})
 
 (def 
   ^{:doc "About for gui"}

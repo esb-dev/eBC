@@ -32,9 +32,9 @@
         (if (empty? result)
           (report-fn "No errors found.")
           (do
-            (report-fn "Please check the following files")
-            (doseq [error result]
-              (report-fn "-" error)))))
+            (report-fn "Please check the following files:")
+            (doseq [fname result]
+              (report-fn (str "- " fname))))))
       (let [name (:name (first books-seq))]
         (if (= 0 (rem i 100))
           (report-fn (str "Analyzing ... "  i " ...")))

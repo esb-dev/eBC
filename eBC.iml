@@ -39,7 +39,7 @@
     <orderEntry type="library" name="Leiningen: org.apache.tika/tika-parsers:1.5" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.6.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.cli:0.3.1" level="project" />
-    <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.3" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.6" level="project" />
     <orderEntry type="library" name="Leiningen: seesaw:1.4.4" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.lucene/lucene-analyzers-common:4.4.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.lucene/lucene-core:4.4.0" level="project" />
@@ -85,6 +85,7 @@
     <orderEntry type="library" name="Leiningen: dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.poi/poi-ooxml-schemas:3.10-beta2" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.xmlbeans/xmlbeans:2.3.0" level="project" />
+    <orderEntry type="library" name="Leiningen: org.gagravarr/vorbis-java-core:0.1" level="project" />
     <orderEntry type="library" name="Leiningen: jdom:1.0" level="project" />
     <orderEntry type="library" name="Leiningen: com.jgoodies/forms:1.2.1" level="project" />
     <orderEntry type="library" name="Leiningen: com.miglayout/miglayout:3.7.4" level="project" />
