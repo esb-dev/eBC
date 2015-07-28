@@ -1,6 +1,6 @@
 ; eBooks Collection ebc - Synchronisation of the Lucene index
 ; Updates the Lucene index of the eBooks Collection with the
-; changes of the collection since the last update or index
+; changes of the collection since the last update' or index
 
 ; Copyright (c) 2014 Burkhardt Renz, THM. All rights reserved.
 ; The use and distribution terms for this software are covered by the
@@ -131,5 +131,5 @@
 		      ; Step 4
 	        (i/log-msg "Done."))))
    (catch Exception e 
-     (i/log-msg "Could not update the Lucene Index.")
+     (i/log-msg "Could not update' the Lucene Index.")
      (i/log-msg (.getMessage e)))))

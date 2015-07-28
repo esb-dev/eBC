@@ -33,7 +33,7 @@
    ["-c" "--check"      "checks filenames" :flag true] 
    ["-d" "--directory"  "creates the HTML eBook directory" :flag true]
    ["-i" "--index"      "indexes the eBooks Collection" :flag true]
-   ["-u" "--update"     "updates the index" :flag true]])
+   ["-u" "--update'"     "updates the index" :flag true]])
 
 (def usage
    (->> [(:ver c/ebc-rev)

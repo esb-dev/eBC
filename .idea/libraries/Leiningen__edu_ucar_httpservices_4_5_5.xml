@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: edu.ucar/httpservices:4.5.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/edu/ucar/httpservices/4.5.5/httpservices-4.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

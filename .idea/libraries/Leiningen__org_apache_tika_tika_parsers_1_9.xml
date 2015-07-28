@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.apache.tika/tika-parsers:1.9">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tika/tika-parsers/1.9/tika-parsers-1.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -191,7 +191,18 @@
           ebcfiles (filter #(ebc-pname? (trim-path (norm-path (.getPath ^File %)) basedir)) allfiles)]
           (map #(file->book % basedir) ebcfiles))))
 
-  
+; quite interesting - transducers doesn't improve the performance here
+#_(defn books
+  "Sequence of ebooks in basedir satisfying pred on file"
+  ([basedir]
+   (books basedir (constantly true)))
+  ([basedir pred]
+   (let [xf1 (filter pred)
+         xf2 (filter #(ebc-pname? (trim-path (norm-path (.getPath ^File %)) basedir)))
+         xm  (map #(file->book % basedir))
+         xf (comp xf1 xf2 xm)]
+     (sequence xf (file-seq (io/file basedir))))))
+     
 (defn- file->scat
   "Takes file of an cat or subcat folder and gives a map
    {:sort-cat
@@ -212,3 +223,13 @@
   (let [dirs     (filter #(.isDirectory ^File %) (file-seq (io/file basedir)))
         names    (filter #(re-matches (:scat c/ebc-pats) (.getName ^File %)) dirs)]
     (map #(file->scat % basedir) names)))
+
+#_(defn scats
+  "Sequence of maps with {:cat, :subcat} of categories and subcategories in the collection
+   in basedir."
+  [basedir]
+  (let [xf1 (filter #(.isDirectory ^File %))
+        xf2 (filter #(re-matches (:scat c/ebc-pats)(.getName ^File %)))
+        xm  (map #(file->scat % basedir))
+        xf (comp xf1 xf2 xm)]
+    (sequence xf (file-seq (io/file basedir)))))

@@ -100,7 +100,7 @@
 (def index-action
   (sc/action :handler (fn [e] (index e)) :name "Index" :mnemonic \I))
 
-(defn update [event]
+(defn update' [event]
   (let [root    (sc/to-root event)
         basedir (norm-path (sc/text (sc/select root [:#ebc])))]
     (future
@@ -111,7 +111,7 @@
       (sc/invoke-later (enable root))))) 
 
 (def update-action
-  (sc/action :handler (fn [e] (update e)) :name "Update" :mnemonic \U))
+  (sc/action :handler (fn [e] (update' e)) :name "Update" :mnemonic \U))
 
 (defn about-dlg []
     (-> (sc/dialog :title "About eBC" :size [400 :by 360] :content c/about)

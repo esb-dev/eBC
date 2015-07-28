@@ -6,18 +6,18 @@
 ;   By using this software in any fashion, you are agreeing to be bound by
 ;   the terms of this license.
 
-(defproject ebc "4.2.1"
+(defproject ebc "4.3.0"
   :description "eBooks Collection Toolbox"
   :url "http://homepages.thm.de/~hg11260/ebc.html"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.6.0"]  
+  :dependencies [[org.clojure/clojure "1.7.0"]  
                  [org.clojure/tools.cli "0.3.1"]
-                 [seesaw "1.4.4"]
+                 [seesaw "1.4.5"]
                  [ceterumnet-zclucy "0.9.4"]
-                 [enlive "1.1.5"]
-                 [com.itextpdf/itextpdf "5.5.0"]
-                 [org.apache.tika/tika-parsers "1.5"]]
+                 [enlive "1.1.6"]
+                 [com.itextpdf/itextpdf "5.5.6"]
+                 [org.apache.tika/tika-parsers "1.9"]]
   :main ebc.main
   :profiles {:uberjar  {:aot :all}}
   :uberjar-name "ebc.jar")

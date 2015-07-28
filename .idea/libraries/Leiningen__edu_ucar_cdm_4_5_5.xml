@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: edu.ucar/cdm:4.5.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/edu/ucar/cdm/4.5.5/cdm-4.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

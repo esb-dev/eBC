@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: rome:1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/rome/rome/1.0/rome-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -13,10 +13,10 @@
           :rev Revision
           :ver Version string
           :cpr Copyright string"}
-  ;; don't forget to update the revision in ebc.ps1 too
+  ;; don't forget to update' the revision in ebc.ps1 too
   ebc-rev
-  {:rev "4.2.1 (2015-03-16)"
-   :ver "This is eBC (eBooks Collection) Rev 4.2.1"
+  {:rev "4.3.0 (2015-07-28)"
+   :ver "This is eBC (eBooks Collection) Rev 4.3.0"
    :cpr "Copyright (c) 2003 - 2015 by Burkhardt Renz, THM"})
 
 (def 
