@@ -60,7 +60,7 @@
 (def choose-action
   (sc/action :handler (fn [e] (choose-basedir e)) :name "Choose eBooks Collection"))
 
-(defn dir [event]
+(defn direc [event]
   (let [root    (sc/to-root event)
         basedir (norm-path (sc/text (sc/select root [:#ebc])))]
     (future
@@ -71,7 +71,7 @@
       (sc/invoke-later (enable root))))) 
 
 (def dir-action
-  (sc/action :handler (fn [e] (dir e)) :name "Directory" :mnemonic \D))
+  (sc/action :handler (fn [e] (direc e)) :name "Directory" :mnemonic \D))
 
 (defn check [event]
   (let [root    (sc/to-root event)

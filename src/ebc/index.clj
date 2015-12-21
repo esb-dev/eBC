@@ -2,7 +2,7 @@
 ; Generating and searching the Lucene index from the ebooks in a 
 ; collection
 
-; Copyright (c) 2014 Burkhardt Renz, THM. All rights reserved.
+; Copyright (c) 2014 - 2015 Burkhardt Renz, THM. All rights reserved.
 ; The use and distribution terms for this software are covered by the
 ; Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php).
 ; By using this software in any fashion, you are agreeing to be bound by
@@ -13,21 +13,13 @@
             [ebc.util :refer :all]
             [clojure.string :as str]
             [clucy.core :as luc]
-            [clojure.java.io :as io])
+            [clojure.java.io :as io]
+            [pantomime.extract :as extract])
   (:import
     (java.io File)
     (org.apache.lucene.analysis.standard StandardAnalyzer)
     (org.apache.lucene.analysis.util CharArraySet)
-    (org.apache.lucene.util Version AttributeSource)
-    (org.apache.tika.parser Parser ParseContext)
-    (org.apache.tika.parser.epub EpubParser)
-    (org.apache.tika.parser.html HtmlParser)
-    (org.apache.tika.parser.txt TXTParser)
-    (org.apache.tika.metadata Metadata)
-    (org.apache.tika.sax BodyContentHandler)
-    (org.xml.sax SAXException)
-    (com.itextpdf.text.pdf PdfReader)
-    (com.itextpdf.text.pdf.parser PdfTextExtractor)))
+    (org.apache.lucene.util Version)))
 
 #_(set! *warn-on-reflection* true)
 
@@ -95,79 +87,14 @@
         relpath (peek (re-matches (:path c/ebc-pats) path))]
   (apply str (interpose " " (str/split relpath #"[_/.]")))))
 
-(defn tika
-  "Extracts text using the parser with as little help from Apache tika."
-  [^Parser parser ^File file]
-  (let [md  (Metadata. )
-        bch (BodyContentHandler. (* 1024 1024))]
-    (try
-      (with-open [is (io/input-stream file)]
-        (.parse parser is bch md (ParseContext. )))
-      (.toString bch)
-    (catch SAXException se ; e.g. limit for BodyContentHandler reached - content so far can be used
-      (.toString bch))
-    (catch Exception e     ; use infos from filename
-      ""))))
-    
-(defn extract-epub
-  "Extracts text from epub file with the help of Apache tika."
-  [^File file]
-  (tika (EpubParser. ) file))
- 
-(defn extract-html
-  "Extracts text from html file with the help of Apache tika."
-  [^File file]
-  (tika (HtmlParser. ) file))
-
-(defn extract-txt
-  "Extracts text from txt file with the help of Apache tika."
-  [^File file]
-  (tika (TXTParser. ) file))
-
-(defn extract-pdf
-  "Extracts text from pdf file with a little help from iText."
-  [file]
-  (try
-    (let [reader   (PdfReader. (io/input-stream file))
-          page-cnt (.getNumberOfPages reader)
-          content  (apply str (for [pg (range page-cnt)]
-                                (PdfTextExtractor/getTextFromPage reader (inc pg))))]
-      (if reader (.close reader))
-       content)
-    (catch Throwable e 
-      "")))
-
-  
-(defmulti extract-content
+(defn extract-content
   "Extracts content from ebook 
    corresponding to the extension of the ebook."
-  (fn [file ext]
-    ext))
-
-(defmethod extract-content "txt"
   [file ext]
-  (str (extract-default file) (extract-txt file)))
-
-(defmethod extract-content "htm"
-  [file ext]
-  (str (extract-default file) (extract-html file)))
+  (case ext
+    ("txt" "htm" "html" "pdf" "epub") (:text (extract/parse file))
+    (extract-default file)))
   
-(defmethod extract-content "html"
-  [file ext]
-  (str (extract-default file) (extract-html file)))
-
-(defmethod extract-content "pdf"
-  [file ext]
-  (str (extract-default file) (extract-pdf file)))
-
-(defmethod extract-content "epub"
-  [file ext]
-  (str (extract-default file) (extract-epub file)))
-
-(defmethod extract-content :default
-  [file ext]
-  (extract-default file))
-
 ;; Structure of maps (ldoc) for the Lucene index
 (def 
   ^{:doc "Structure of maps for the Lucene index"}

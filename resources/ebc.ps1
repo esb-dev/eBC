@@ -1,12 +1,12 @@
 # --------------------------------------------------------------------------
 # ebc Tools in Powershell
-# (c) since 2014 by Burkhardt Renz, THM
+# (c) since 2014 - 2015 by Burkhardt Renz, THM
 # --------------------------------------------------------------------------
  
 function usage{
 $msg=
 @'
-This is ebc Rev 4.1
+This is ebc Rev 4.4
 ebc starts tools for the ebc eBooks Collection 
 in the current directory.
 
