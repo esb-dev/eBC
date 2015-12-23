@@ -91,9 +91,11 @@
   "Extracts content from ebook 
    corresponding to the extension of the ebook."
   [file ext]
-  (case ext
-    ("txt" "htm" "html" "pdf" "epub") (:text (extract/parse file))
-    (extract-default file)))
+  (let [content (extract-default file)]
+    (case ext
+      ("txt" "htm" "html" "pdf" "epub") 
+          (str content " " (:text (extract/parse file)))
+          content)))
   
 ;; Structure of maps (ldoc) for the Lucene index
 (def 
