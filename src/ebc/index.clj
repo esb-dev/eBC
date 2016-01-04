@@ -2,7 +2,7 @@
 ; Generating and searching the Lucene index from the ebooks in a 
 ; collection
 
-; Copyright (c) 2014 - 2015 Burkhardt Renz, THM. All rights reserved.
+; Copyright (c) 2014 - 2016 Burkhardt Renz, THM. All rights reserved.
 ; The use and distribution terms for this software are covered by the
 ; Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php).
 ; By using this software in any fashion, you are agreeing to be bound by
@@ -28,7 +28,7 @@
 (def 
   ^{:doc "Stopwords for the Lucene Analyzer"}
   stopwords 
-  (CharArraySet. Version/LUCENE_CURRENT
+  (CharArraySet. Version/LUCENE_44
     [ ; english words
     "a", "an", "and", "are", "as", "at", "be", "but", "by",
 		"for", "if", "in", "into", "is", "it",
@@ -52,7 +52,7 @@
 
 (def 
   ^{:doc "The Analyzer for ebooks in our collections"}
-  ebc-analyzer (StandardAnalyzer. Version/LUCENE_CURRENT ^CharArraySet stopwords))
+  ebc-analyzer (StandardAnalyzer. Version/LUCENE_44 ^CharArraySet stopwords))
 
 ;; ## Reporting the progress of generating oder updating the index
 

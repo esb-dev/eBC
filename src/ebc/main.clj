@@ -1,7 +1,7 @@
 ; eBooks Collection ebc - main
 ; Starts the GUI as well as the cli tools.
 
-; Copyright (c) 2014 Burkhardt Renz, THM. All rights reserved.
+; Copyright (c) 2014 - 2015 Burkhardt Renz, THM. All rights reserved.
 ; The use and distribution terms for this software are covered by the
 ; Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php).
 ; By using this software in any fashion, you are agreeing to be bound by

@@ -1,6 +1,6 @@
 ; eBooks Collection ebc - Constants 
 
-; Copyright (c) 2014 - 2015 Burkhardt Renz, THM. All rights reserved.
+; Copyright (c) 2014 - 2016 Burkhardt Renz, THM. All rights reserved.
 ; The use and distribution terms for this software are covered by the
 ; Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php).
 ; By using this software in any fashion, you are agreeing to be bound by
@@ -13,11 +13,10 @@
           :rev Revision
           :ver Version string
           :cpr Copyright string"}
-  ;; don't forget to update' the revision in ebc.ps1 too
   ebc-rev
-  {:rev "4.4.0 (2015-12-21)"
-   :ver "This is eBC (eBooks Collection) Rev 4.4.0"
-   :cpr "Copyright (c) 2003 - 2015 by Burkhardt Renz, THM"})
+  {:rev "4.4.1 (2016-01-04)"
+   :ver "This is eBC (eBooks Collection) Rev 4.4.1"
+   :cpr "Copyright (c) 2003 - 2016 by Burkhardt Renz, THM"})
 
 (def 
   ^{:doc "About for gui"}

@@ -2,7 +2,7 @@
 ; The functions in this namespace check the naming conventions 
 ; and provide the data for the generation of the html pages.
 
-; Copyright (c) 2014 - 2015 Burkhardt Renz, THM. All rights reserved.
+; Copyright (c) 2014 - 2016 Burkhardt Renz, THM. All rights reserved.
 ; The use and distribution terms for this software are covered by the
 ; Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php).
 ; By using this software in any fashion, you are agreeing to be bound by
@@ -46,8 +46,8 @@
 
 (defn make-filter
   "Returns filter function for the value at the given keyword >= left and < right."
-  [key left right]
-  (fn [x] (let [p (key x)]
+  [keyw left right]
+  (fn [x] (let [p (keyw x)]
             (and (>= (compare p left) 0) (< (compare p right) 0)))))
 
 ;; Definition of the groups for authors, titles and dates
@@ -91,11 +91,11 @@
   "Gives a sorted seq of unique subjects from the basedir,
    together with the name of the corresponding html file."
   [basedir]
-  sort by-cat-subcat
+  (sort by-cat-subcat
      (map-indexed #(assoc %2 :cat (sort-str (:sort-cat %2))
                              :subcat (sort-str (:sort-subcat %2))
                              :html (format "ebc-c%03d.html" %1))
-        (scats basedir)))
+        (scats basedir))))
 
 (defn cat-grps
   "The groups for the directories with respect to cats and subcats,
