@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: de.l3s.boilerpipe/boilerpipe:1.1.0">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/de/l3s/boilerpipe/boilerpipe/1.1.0/boilerpipe-1.1.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

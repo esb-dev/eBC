@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.jdom/jdom2:2.0.4">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/jdom/jdom2/2.0.4/jdom2-2.0.4.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

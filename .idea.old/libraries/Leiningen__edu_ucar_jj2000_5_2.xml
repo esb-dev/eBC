@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: edu.ucar/jj2000:5.2">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/edu/ucar/jj2000/5.2/jj2000-5.2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

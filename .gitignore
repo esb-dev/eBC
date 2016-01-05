@@ -4,10 +4,11 @@
 pom.xml
 pom.xml.asc
 *.jar
-*.class
+*.clacd .ideapj whatss
 /.lein-*
 /.nrepl-port
 /bin
 /.settings
 .idea/
+.idea.old/
 

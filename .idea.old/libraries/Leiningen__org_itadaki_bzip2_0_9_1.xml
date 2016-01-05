@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.itadaki/bzip2:0.9.1">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/itadaki/bzip2/0.9.1/bzip2-0.9.1.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Leiningen: org.apache.poi/poi-scratchpad:3.13">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-scratchpad/3.13/poi-scratchpad-3.13.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
