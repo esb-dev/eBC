@@ -9,5 +9,5 @@ pom.xml.asc
 /.nrepl-port
 /bin
 /.settings
-/.idea
+.idea/
 
