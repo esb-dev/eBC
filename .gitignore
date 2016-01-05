@@ -10,4 +10,5 @@ pom.xml.asc
 /bin
 /.settings
 .idea/
+**/.DS_Store
 
