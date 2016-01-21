@@ -6,12 +6,12 @@
 ;   By using this software in any fashion, you are agreeing to be bound by
 ;   the terms of this license.
 
-(defproject ebc "4.4.1"
+(defproject ebc "4.4.2"
   :description "eBooks Collection Toolbox"
   :url "http://homepages.thm.de/~hg11260/ebc.html"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.7.0"]  
+  :dependencies [[org.clojure/clojure "1.8.0"]  
                  [org.clojure/tools.cli "0.3.1"]
                  [seesaw "1.4.5"]
                  [ceterumnet-zclucy "0.9.4"]
