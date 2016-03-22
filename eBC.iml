@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module cursive.leiningen.project.LeiningenProjectsManager.displayName="ebc:4.4.1" cursive.leiningen.project.LeiningenProjectsManager.isLeinModule="true" type="JAVA_MODULE" version="4">
+<module cursive.leiningen.project.LeiningenProjectsManager.displayName="ebc:4.4.3" cursive.leiningen.project.LeiningenProjectsManager.isLeinModule="true" type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
     <libelement value="file://target/classes" />
     <conelement value="ccw.LEININGEN_CONTAINER" />
@@ -34,7 +34,7 @@
     </orderEntry>
     <orderEntry type="library" name="Leiningen: c3p0:0.9.1.1" level="project" />
     <orderEntry type="library" name="Leiningen: ceterumnet-zclucy:0.9.4" level="project" />
-    <orderEntry type="library" name="Leiningen: clojure-complete:0.2.3" level="project" />
+    <orderEntry type="library" name="Leiningen: clojure-complete:0.2.4" level="project" />
     <orderEntry type="library" name="Leiningen: com.adobe.xmp/xmpcore:5.1.2" level="project" />
     <orderEntry type="library" name="Leiningen: com.beust/jcommander:1.35" level="project" />
     <orderEntry type="library" name="Leiningen: com.drewnoakes/metadata-extractor:2.8.0" level="project" />
@@ -123,8 +123,8 @@
     <orderEntry type="library" name="Leiningen: org.bouncycastle/bcprov-jdk15on:1.52" level="project" />
     <orderEntry type="library" name="Leiningen: org.ccil.cowan.tagsoup/tagsoup:1.2.1" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.8.0" level="project" />
-    <orderEntry type="library" name="Leiningen: org.clojure/tools.cli:0.3.1" level="project" />
-    <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.10" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/tools.cli:0.3.3" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.12" level="project" />
     <orderEntry type="library" name="Leiningen: org.codehaus.plexus/plexus-utils:1.5.6" level="project" />
     <orderEntry type="library" name="Leiningen: org.codehaus.woodstox/stax2-api:3.1.4" level="project" />
     <orderEntry type="library" name="Leiningen: org.codehaus.woodstox/woodstox-core-asl:4.4.1" level="project" />
