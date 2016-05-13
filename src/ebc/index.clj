@@ -93,9 +93,10 @@
   [file ext]
   (let [content (extract-default file)]
     (case ext
-      ("txt" "htm" "html" "pdf" "epub") 
-          (str content " " (:text (extract/parse file)))
-          content)))
+      ("txt" "htm" "html" "pdf" "epub")
+      (try (str content " " (:text (extract/parse file)))
+           (catch Exception e content))
+      content)))
   
 ;; Structure of maps (ldoc) for the Lucene index
 (def 
