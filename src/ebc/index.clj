@@ -104,6 +104,7 @@
   {:_id [:path]  ; unique id for documents is :path
    :path    {:type "string" :analyzed false}
    :date    {:type "string" :analyzed false}
+   :type    {:type "string" :analyzed false}
    :ext     {:type "string" :analyzed false}
    :author  {:type "string"}
    :title   {:type "string"}
@@ -115,6 +116,7 @@
   [book]
   {:path    (:path book)
    :date    (:date book)
+   :type    (:type book)
    :ext     (:ext  book)
    :size    (:size book)
    :author  (sort-str (:sort-authors book))

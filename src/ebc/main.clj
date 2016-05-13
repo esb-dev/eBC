@@ -30,10 +30,10 @@
   [["-v" "--version"]
    ["-h" "--help"] 
    ["-b" "--basedir BD" "(optional) base directory" :default "."]
-   ["-c" "--check"      "checks filenames" :flag true] 
-   ["-d" "--directory"  "creates the HTML eBook directory" :flag true]
-   ["-i" "--index"      "indexes the eBooks Collection" :flag true]
-   ["-u" "--update'"     "updates the index" :flag true]])
+   ["-c" "--check"      "checks filenames"]
+   ["-d" "--directory"  "creates the HTML eBook directory"]
+   ["-i" "--index"      "indexes the eBooks Collection"]
+   ["-u" "--update'"     "updates the index"]])
 
 (def usage
    (->> [(:ver c/ebc-rev)

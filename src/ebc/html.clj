@@ -68,10 +68,11 @@
 ; finally the whole page
 
 (defsnippet slink "ebc-links.html" [:.slink]
-  [{:keys [author path title ext size date] :as result}]
+  [{:keys [author path title type ext size date] :as result}]
   [:#score]  (content (format "%1.2f" (:_score (meta result))))
   [:b]       (content author)
   [:a]       (set-attr :href path)
+  [:#important] (if (= type "x") (content " "))
   [:#title]  (content title)
   [:#ext]    (content ext)
   [:#size]   (content size)
