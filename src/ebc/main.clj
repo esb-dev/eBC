@@ -36,7 +36,9 @@
    ["-u" "--update'"     "updates the index"]])
 
 (def usage
-   (->> [(:ver c/ebc-rev)
+   (clojure.string/join
+     \newline
+     [(:ver c/ebc-rev)
         ""
         "Usage: ebc              starts the GUI for searching"
         "       ebc [-b basedir] -c checks filenames in the eBooks collection"
@@ -44,8 +46,7 @@
         "       ebc [-b basedir] -i indexes the eBooks Collection"
         "       ebc [-b basedir] -u updates the index"
         "       ebc -h help"
-        "       ebc -v version"]
-       (clojure.string/join \newline)))
+        "       ebc -v version"]))
   
 (defn- exit [status msg]
   (println msg)
@@ -64,4 +65,5 @@
         (:index options)      (do (make-index basedir println) (exit 0 "bye"))
         (:update options)     (do (update-index basedir println) (exit 0 "bye"))
         (:directory options)  (do (make-directory basedir println) (exit 0 "bye"))
-        :else                 (do (gui))))))
+        :else                 (gui)
+        ))))

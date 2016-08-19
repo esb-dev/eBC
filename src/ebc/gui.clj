@@ -58,7 +58,7 @@
                                    (sc/selection! cb basedir')))))
 
 (def choose-action
-  (sc/action :handler (fn [e] (choose-basedir e)) :name "Choose eBooks Collection"))
+  (sc/action :handler choose-basedir :name "Choose eBooks Collection"))
 
 (defn direc [event]
   (let [root    (sc/to-root event)
@@ -71,7 +71,7 @@
       (sc/invoke-later (enable root))))) 
 
 (def dir-action
-  (sc/action :handler (fn [e] (direc e)) :name "Directory" :mnemonic \D))
+  (sc/action :handler direc :name "Directory" :mnemonic \D))
 
 (defn check [event]
   (let [root    (sc/to-root event)
@@ -85,7 +85,7 @@
 
 
 (def check-action
-  (sc/action :handler (fn [e] (check e)) :name "Check" :mnemonic \C))
+  (sc/action :handler check :name "Check" :mnemonic \C))
 
 (defn index [event]
   (let [root    (sc/to-root event)
@@ -98,7 +98,7 @@
       (sc/invoke-later (enable root))))) 
 
 (def index-action
-  (sc/action :handler (fn [e] (index e)) :name "Index" :mnemonic \I))
+  (sc/action :handler index :name "Index" :mnemonic \I))
 
 (defn update' [event]
   (let [root    (sc/to-root event)
@@ -111,7 +111,7 @@
       (sc/invoke-later (enable root))))) 
 
 (def update-action
-  (sc/action :handler (fn [e] (update' e)) :name "Update" :mnemonic \U))
+  (sc/action :handler update' :name "Update" :mnemonic \U))
 
 (defn about-dlg []
     (-> (sc/dialog :title "About eBC" :size [400 :by 360] :content c/about)
@@ -130,7 +130,7 @@
      (catch Exception e (sc/alert (.getMessage e))))))
 
 (def browse-action
-  (sc/action :handler (fn [e] (browse e)) :name "Browse" :mnemonic \B))
+  (sc/action :handler browse :name "Browse" :mnemonic \B))
 
 (defn search [event]
    (let [root (sc/to-root event)
@@ -141,17 +141,16 @@
                    (index/sresults basedir search-crit)
                    (catch Exception e (sc/alert (.getMessage e))))
          result-page (html/results "Search results" (dir/navdata (dir/subjects basedir)) results)]
-       (if results
-         (do
+       (when results
           (let [name (:css c/ebc-file-names)]
             (copy-resource name (str basedir "/" name)))
            (html/spit-page result-path result-page)
            (try
              (b/browse-url result-path)
-             (catch Exception e (sc/alert (.getMessage e))))))))
+             (catch Exception e (sc/alert (.getMessage e)))))))
 
 (def search-action
-  (sc/action :handler (fn [e] (search e)) :name "Search" :mnemonic \S))
+  (sc/action :handler search :name "Search" :mnemonic \S))
 
 (def exit-action
   (sc/action :handler (fn [e] (System/exit 0)) :name "Exit" :mnemonic \E))
@@ -189,7 +188,6 @@
                     :resizable? false 
                     :content (frame-content)
                     :on-close :exit)]
-    (do
       (sc/native!)
       (javax.swing.SwingUtilities/updateComponentTreeUI f)  
       (doto (.getRootPane ^JFrame f) (.setDefaultButton (sc/select f [:#search])))
@@ -198,4 +196,4 @@
       (lw/init [250, 75])
       (sc/move! f :to [50, 50])
       (sc/show! f)
-      (sc/request-focus! (sc/select f [:#scr])))))
+      (sc/request-focus! (sc/select f [:#scr]))))

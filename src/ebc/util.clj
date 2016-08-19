@@ -75,7 +75,7 @@
   newer?
   "Is modification date of file > moddate (yyyy-MM-dd)?"
   [file moddate]
-  (> (compare (filedate file) moddate) 0))
+  (pos? (compare (filedate file) moddate)))
 
 (defn 
   copy-resource

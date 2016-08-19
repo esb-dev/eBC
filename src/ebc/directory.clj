@@ -36,10 +36,9 @@
             (doseq [fname result]
               (report-fn (str "- " fname))))))
       (let [name (:name (first books-seq))]
-        (if (= 0 (rem i 100))
+        (if (zero? (rem i 100))
           (report-fn (str "Analyzing ... "  i " ...")))
         (recur (rest books-seq) (inc i) (if (ebc-name? name) result (conj result name)))))))
-
 
 ;; The following function is used to define the groups for
 ;; authors, titles, and dates
@@ -48,7 +47,7 @@
   "Returns filter function for the value at the given keyword >= left and < right."
   [keyw left right]
   (fn [x] (let [p (keyw x)]
-            (and (>= (compare p left) 0) (< (compare p right) 0)))))
+            (and (>= (compare p left) 0) (neg? (compare p right))))))
 
 ;; Definition of the groups for authors, titles and dates
 
@@ -116,10 +115,10 @@
    for the navigation with subcats of the given category."
   ([subjects] (navdata subjects ""))
   ([subjects cat]
-    (let [clinks (into [] (cat-grps subjects cat))
-          alinks (into [] (map #(select-keys % [:caption :html]) author-grps))
-          tlinks (into [] (map #(select-keys % [:caption :html]) title-grps))
-          dlinks (into [] (map #(select-keys % [:caption :html]) date-grps))]
+    (let [clinks (vec (cat-grps subjects cat))
+          alinks (vec (map #(select-keys % [:caption :html]) author-grps))
+          tlinks (vec (map #(select-keys % [:caption :html]) title-grps))
+          dlinks (vec (map #(select-keys % [:caption :html]) date-grps))]
       [{:title "Categories" :links clinks}
        {:title "Authors"    :links alinks}
        {:title "Titles"     :links tlinks}
@@ -268,16 +267,13 @@
   (report-fn (:ver c/ebc-rev))
   (let [boks (books basedir)
         subjs (subjects basedir)]
-    (do
       (let [ndata (navdata subjs)]
-        (do
           (let [name (:css c/ebc-file-names)]
             (copy-resource name (str basedir "/" name)))
           (make-index   ndata basedir report-fn)
           (make-authors ndata boks basedir report-fn)
           (make-titles  ndata boks basedir report-fn)
-          (make-dates   ndata boks basedir report-fn)))
-       (make-cats boks subjs basedir report-fn)
-     ))
+          (make-dates   ndata boks basedir report-fn))
+       (make-cats boks subjs basedir report-fn))
   (report-fn "done."))
     

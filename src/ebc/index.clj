@@ -85,7 +85,7 @@
   [^File file]
   (let [path (.getPath file)
         relpath (peek (re-matches (:path c/ebc-pats) path))]
-  (apply str (interpose " " (str/split relpath #"[_/.]")))))
+  (clojure.string/join " " (str/split relpath #"[_/.]"))))
 
 (defn extract-content
   "Extracts content from ebook 

@@ -32,7 +32,7 @@
   (let [idx-path (str basedir "/" (:index c/ebc-file-names))
         index (luc/disk-index idx-path)]
     (binding [luc/*analyzer* i/ebc-analyzer]
-      (first (map #(:date %) (luc/search index "*:*" 1 :sort-by "date desc"))))))
+      (first (map :date (luc/search index "*:*" 1 :sort-by "date desc"))))))
 
 
 ;; Find the obsolete ebooks in the index
@@ -56,13 +56,13 @@
   (let [idx-path (str basedir "/" (:index c/ebc-file-names))
         index (luc/disk-index idx-path)]
     (binding [luc/*analyzer* i/ebc-analyzer]
-      (into #{} (map #(:path %) (luc/search index "*:*" (no-ldocs index)))))))
+      (set (map :path (luc/search index "*:*" (no-ldocs index)))))))
 
 (defn
   cpaths
   "Set of the current paths in the collection at basedir"
   [basedir]
-  (into #{} (map :path (books basedir))))
+  (set (map :path (books basedir))))
 
 (defn
   opaths

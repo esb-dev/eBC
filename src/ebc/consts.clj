@@ -21,28 +21,23 @@
 (def 
   ^{:doc "About for gui"}
   about
-  (->> ["<html><strong>eBooks Collection Toolbox</strong>"
-        (str "eBC Rev " (:rev ebc-rev))
-        (:cpr ebc-rev)
-        "Project home: homepages.thm.de/~hg11260/ebc.html"
-        ""
-        "<html>Licensed under <strong>Eclipse Public License 1.0</strong><br />"
-        "<html>Written in <strong>Clojure</strong> (clojure.org)<br />"
-        ""
-        "<html><strong>Libraries</strong> used:"
-        "Seesaw (github.com/daveray/seesaw)"
-        "Lucene (lucene.apache.org) with"
-        "ZClucy (https://github.com/ceterumnet/clucy)"
-        "Enlive (github.com/cgrand/enlive)"
-        "Pantomime (github.com/michaelklishin/pantomime)"
-        "Tika (tika.apache.org)"
-        ]
-    (clojure.string/join \newline)))
-
-(def
-  ^{:doc "Environment variable with basedirs of ebooks collections"}
-  ebc-env-entry
-  "ebcBasedirs")
+  (clojure.string/join
+    \newline
+    ["<html><strong>eBooks Collection Toolbox</strong>"
+     (str "eBC Rev " (:rev ebc-rev))
+     (:cpr ebc-rev)
+     "Project home: homepages.thm.de/~hg11260/ebc.html"
+     ""
+     "<html>Licensed under <strong>Eclipse Public License 1.0</strong><br />"
+     "<html>Written in <strong>Clojure</strong> (clojure.org)<br />"
+     ""
+     "<html><strong>Libraries</strong> used:"
+       "Seesaw (github.com/daveray/seesaw)"
+       "Lucene (lucene.apache.org) with"
+       "ZClucy (https://github.com/ceterumnet/clucy)"
+       "Enlive (github.com/cgrand/enlive)"
+       "Pantomime (github.com/michaelklishin/pantomime)"
+       "Tika (tika.apache.org)"]))
 
 (def
   ^{:doc "Patterns
@@ -60,7 +55,7 @@
    :topic  #".*/et_([^/]*).*"
    :book   #"^e[bx]_.*"
    :path   #".*(ec_.*$)"
-   :scat    #"^e[cs]_([^/]*).*"})
+   :scat   #"^e[cs]_([^/]*).*"})
    
 (def
   ^{:doc "Pattern for ebc filename: type - authors - title - ext"}
