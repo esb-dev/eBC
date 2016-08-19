@@ -55,10 +55,14 @@
 (def 
   ^{:doc "Groups for the directory of books ordered by authors"}
   author-grps
-  [{:caption "Authors, A-E", :flt (make-filter :sort-author (sort-key "0") (sort-key "F")) :html "ebc-a1.html"}
-   {:caption "Authors, F-L", :flt (make-filter :sort-author (sort-key "F") (sort-key "M")) :html "ebc-a2.html"}
-   {:caption "Authors, M-R", :flt (make-filter :sort-author (sort-key "M") (sort-key "S")) :html "ebc-a3.html"}
-   {:caption "Authors, S-Z", :flt (make-filter :sort-author (sort-key "S") (sort-key "ZZ")) :html "ebc-a4.html"}])
+  [{:caption "Authors, A-B", :flt (make-filter :sort-author (sort-key "0") (sort-key "C")) :html "ebc-a1.html"}
+   {:caption "Authors, C-E", :flt (make-filter :sort-author (sort-key "C") (sort-key "F")) :html "ebc-a2.html"}
+   {:caption "Authors, F-G", :flt (make-filter :sort-author (sort-key "F") (sort-key "H")) :html "ebc-a3.html"}
+   {:caption "Authors, H-K", :flt (make-filter :sort-author (sort-key "H") (sort-key "L")) :html "ebc-a4.html"}
+   {:caption "Authors, L-M", :flt (make-filter :sort-author (sort-key "L") (sort-key "N")) :html "ebc-a5.html"}
+   {:caption "Authors, N-R", :flt (make-filter :sort-author (sort-key "N") (sort-key "S")) :html "ebc-a6.html"}
+   {:caption "Authors, S-T", :flt (make-filter :sort-author (sort-key "S") (sort-key "U")) :html "ebc-a7.html"}
+   {:caption "Authors, U-Z", :flt (make-filter :sort-author (sort-key "U") (sort-key "ZZ")) :html "ebc-a8.html"}])
 
 (def 
   ^{:doc "Groups for the directory of books ordered by titles"}
