@@ -122,7 +122,7 @@
     <orderEntry type="library" name="Leiningen: org.bouncycastle/bcpkix-jdk15on:1.52" level="project" />
     <orderEntry type="library" name="Leiningen: org.bouncycastle/bcprov-jdk15on:1.52" level="project" />
     <orderEntry type="library" name="Leiningen: org.ccil.cowan.tagsoup/tagsoup:1.2.1" level="project" />
-    <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.9.0-alpha12" level="project" />
+    <orderEntry type="library" name="Leiningen: org.clojure/clojure:1.8.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.cli:0.3.5" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.12" level="project" />
     <orderEntry type="library" name="Leiningen: org.codehaus.plexus/plexus-utils:1.5.6" level="project" />

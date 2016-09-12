@@ -80,12 +80,22 @@
 
 ;; ## Functions that prepare the map for the Lucene index
 
+#_(defn extract-default
+  "Extracts text only from filename (fallback function)."
+  [^File file]
+  (let [path (.getName file)
+        relpath (peek (re-matches (:book c/ebc-pats) path))]
+  (clojure.string/join " " (str/split relpath #"[_/.]"))))
+
 (defn extract-default
   "Extracts text only from filename (fallback function)."
   [^File file]
-  (let [path (.getPath file)
-        relpath (peek (re-matches (:path c/ebc-pats) path))]
-  (clojure.string/join " " (str/split relpath #"[_/.]"))))
+  (let [name (.getName file)
+        parts (re-matches c/ebc-name-pat name)
+        authors (nth parts (:authors c/ebc-name-parts) "")
+        authors' (clojure.string/replace authors #",|\+" {"," "" "+" " "})
+        title   (nth parts (:title   c/ebc-name-parts) "")]
+    (clojure.string/join " " [authors' title])))
 
 (defn extract-content
   "Extracts content from ebook 
