@@ -30,7 +30,7 @@
 
 (defn trim-path
   "Trims basedir from path.
-   Return empty string id basedir = path.
+   Returns empty string if basedir = path.
    :pre basedir is prefix of path
    :pre basedir may not have a trailing path separator.
    :pre basedir and path use the same path separator."
