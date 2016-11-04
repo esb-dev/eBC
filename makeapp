@@ -4,5 +4,5 @@
 # Makes App for Mac OSX
 # ----------------------------------------------------------------------------
 
-javapackager -deploy -name eBC -appclass eBC.main \
+javapackager -deploy -name eBC -appclass ebc.main \
 	-native dmg -outdir target -outfile eBC -srcfiles target/ebc.jar -v
