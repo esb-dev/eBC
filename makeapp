@@ -1,0 +1,8 @@
+#!/bin/bash
+# ----------------------------------------------------------------------------
+# Copyright (c) 2016 by Burkhardt Renz. All rights reserved.
+# Makes App for Mac OSX
+# ----------------------------------------------------------------------------
+
+javapackager -deploy -name eBC -appclass eBC.main \
+	-native dmg -outdir target -outfile eBC -srcfiles target/ebc.jar -v
