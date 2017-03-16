@@ -1,12 +1,12 @@
 ; eBooks Collection ebc - Project definition 
 
-;   Copyright (c) 2014 - 2016 Burkhardt Renz, THM. All rights reserved.
+;   Copyright (c) 2014 - 2017 Burkhardt Renz, THM. All rights reserved.
 ;   The use and distribution terms for this software are covered by the
 ;   Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php).
 ;   By using this software in any fashion, you are agreeing to be bound by
 ;   the terms of this license.
 
-(defproject ebc "4.5.2"
+(defproject ebc "4.5.3"
   :description "eBooks Collection Toolbox"
   :url "http://homepages.thm.de/~hg11260/ebc.html"
   :license {:name "Eclipse Public License"

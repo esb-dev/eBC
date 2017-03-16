@@ -14,9 +14,9 @@
           :ver Version string
           :cpr Copyright string"}
   ebc-rev
-  {:rev "4.5.2 (2016-09-12)"
-   :ver "This is eBC (eBooks Collection) Rev 4.5.2"
-   :cpr "Copyright (c) 2003 - 2016 by Burkhardt Renz, THM"})
+  {:rev "4.5.3 (2017-03-16)"
+   :ver "This is eBC (eBooks Collection) Rev 4.5.3"
+   :cpr "Copyright (c) 2003 - 2017 by Burkhardt Renz, THM"})
 
 (def 
   ^{:doc "About for gui"}
