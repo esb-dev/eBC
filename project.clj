@@ -16,7 +16,7 @@
                  [seesaw "1.4.5"]
                  [ceterumnet-zclucy "0.9.4"]
                  [enlive "1.1.6"]
-                 [com.novemberain/pantomime "2.8.0"]]
+                 [com.novemberain/pantomime "2.9.0"]]
   :main ebc.main
   :profiles {:uberjar  {:aot :all}}
   :uberjar-name "ebc.jar")
