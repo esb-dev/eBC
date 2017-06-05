@@ -71,14 +71,12 @@
   (.format (SimpleDateFormat. "yyyy-MM-dd") 
      (java.util.Date. (.lastModified file))))
   
-(defn
-  newer?
+(defn newer?
   "Is modification date of file > moddate (yyyy-MM-dd)?"
   [file moddate]
   (pos? (compare (filedate file) moddate)))
 
-(defn 
-  copy-resource
+(defn copy-resource
   "Copies resource from jar to destination in file system"
   [name dest]
   (io/copy (.getResourceAsStream (clojure.lang.RT/baseLoader) name) 
@@ -145,6 +143,11 @@
     (= (count parts) (count c/ebc-name-parts))))
 ; note that the check is actually not complete, but sufficient for our purposes
 
+(defn- ebl-path
+  "Extracts path from content of ebl-file"
+  [^File file]
+  (slurp (.getPath file)))
+
 (defn- file->book
   "Takes file of an ebook and gives a map
    {:file
@@ -166,10 +169,11 @@
         path (trim-path (norm-path (.getPath file)) basedir)
         name (.getName file)
         parts (re-matches c/ebc-name-pat name)
+        ext     (nth parts (:ext c/ebc-name-parts) "")
         authors (nth parts (:authors c/ebc-name-parts) "")
         title   (nth parts (:title   c/ebc-name-parts) "")]
     {:file     file
-     :path     path
+     :path     (if (= ext "ebl") (ebl-path file) path)
      :name     name
      :sort-cat      (sort-key (maybe-match (:cat c/ebc-pats) path))
      :sort-subcat   (sort-key (maybe-match (:subcat c/ebc-pats) path))
@@ -177,7 +181,7 @@
      :sort-authors  (sort-key authors)
      :sort-title    (sort-key title)
      :type     (nth parts (:type c/ebc-name-parts) "")
-     :ext      (nth parts (:ext c/ebc-name-parts) "")
+     :ext      ext
      :size     (filesize (.length file))
      :date     (filedate file)
     }))

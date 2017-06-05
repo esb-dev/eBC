@@ -1,12 +1,19 @@
 ; eBooks Collection ebc - Constants 
 
-; Copyright (c) 2014 - 2016 Burkhardt Renz, THM. All rights reserved.
+; Copyright (c) 2014 - 2017 Burkhardt Renz, THM. All rights reserved.
 ; The use and distribution terms for this software are covered by the
 ; Eclipse Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php).
 ; By using this software in any fashion, you are agreeing to be bound by
 ; the terms of this license.
 
-(ns ebc.consts)
+(ns ebc.consts
+  (:require [clojure.edn :as edn]))
+
+; version from project file
+(defmacro proj-version []
+  (some-> "project.clj" slurp edn/read-string (nth 2)))
+
+(def ^:private rev (str (proj-version) " (2017-06-05)"))
 
 (def
   ^{:doc "Revision of eBC
@@ -14,8 +21,8 @@
           :ver Version string
           :cpr Copyright string"}
   ebc-rev
-  {:rev "4.5.3 (2017-03-16)"
-   :ver "This is eBC (eBooks Collection) Rev 4.5.3"
+  {:rev rev
+   :ver (str "This is eBC (eBooks Collection) " rev)
    :cpr "Copyright (c) 2003 - 2017 by Burkhardt Renz, THM"})
 
 (def 

@@ -133,21 +133,23 @@
   (sc/action :handler browse :name "Browse" :mnemonic \B))
 
 (defn search [event]
-   (let [root (sc/to-root event)
-         basedir (str/replace (sc/text (sc/select root [:#ebc])) "\\" "/")
-         result-path (str basedir "/" (:result c/ebc-file-names))
-         search-crit (sc/text (sc/select root [:#scr]))
-         results (try 
-                   (index/sresults basedir search-crit)
-                   (catch Exception e (sc/alert (.getMessage e))))
-         result-page (html/results "Search results" (dir/navdata (dir/subjects basedir)) results)]
-       (when results
+  (let [root (sc/to-root event)
+        basedir (str/replace (sc/text (sc/select root [:#ebc])) "\\" "/")
+        result-path (str basedir "/" (:result c/ebc-file-names))
+        search-crit (sc/text (sc/select root [:#scr]))]
+    (if (str/blank? search-crit)
+      (sc/alert "Please enter search criteria")
+      (let [results (try
+                      (index/sresults basedir search-crit)
+                      (catch Exception e (sc/alert (.getMessage e))))
+            result-page (html/results "Search results" (dir/navdata (dir/subjects basedir)) results)]
+        (when results
           (let [name (:css c/ebc-file-names)]
             (copy-resource name (str basedir "/" name)))
-           (html/spit-page result-path result-page)
-           (try
-             (b/browse-url result-path)
-             (catch Exception e (sc/alert (.getMessage e)))))))
+          (html/spit-page result-path result-page)
+          (try
+            (b/browse-url result-path)
+            (catch Exception e (sc/alert (.getMessage e)))))))))
 
 (def search-action
   (sc/action :handler search :name "Search" :mnemonic \S))
