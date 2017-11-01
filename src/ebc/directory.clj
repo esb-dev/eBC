@@ -188,16 +188,21 @@
     (map #(hash-map :title (key %) :links (val %)) grp2)))
 
 
-;; data for cats sorted with respect to topics and authors
+;; data for cats sorted with respect to topics, authors, and title
 ; path authors title type ext size date
 
 (defn- by-topic-authors
-  "Lexicographical comparison with respect to topic and authors."
+  "Lexicographical comparison with respect to topic, authors and title."
   [x y]
-  (let [a (compare (:sort-topic x) (:sort-topic y))] 
-    (if (not= a 0)
-      a
-      (compare (:sort-authors x) (:sort-authors y)))))
+  (let [t (compare (:sort-topic x) (:sort-topic y))] 
+    (if (not= t 0)
+      t
+      (let [a (compare (:sort-authors x) (:sort-authors y))]
+        (if (not= a 0)
+          a
+          (compare (:sort-title x) (:sort-title y)))
+        ))))
+
 
 (defn categories
   [books cat subcat]
