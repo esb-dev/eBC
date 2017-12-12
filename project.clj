@@ -11,7 +11,7 @@
   :url "http://homepages.thm.de/~hg11260/ebc.html"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.8.0"]  
+  :dependencies [[org.clojure/clojure "1.9.0"]  
                  [org.clojure/tools.cli "0.3.5"]
                  [seesaw "1.4.5"]
                  [ceterumnet-zclucy "0.9.4"]
@@ -20,3 +20,5 @@
   :main ebc.main
   :profiles {:uberjar  {:aot :all}}
   :uberjar-name "ebc.jar")
+
+; Project uses Java 1.8 because of incompatibility of Tika 1.14 with Java 9
