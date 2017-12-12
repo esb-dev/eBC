@@ -13,7 +13,7 @@
 (defmacro proj-version []
   (some-> "project.clj" slurp edn/read-string (nth 2)))
 
-(def ^:private rev (str (proj-version) " (2017-11-01)"))
+(def ^:private rev (str (proj-version) " (2017-12-12)"))
 
 (def
   ^{:doc "Revision of eBC

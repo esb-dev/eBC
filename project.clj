@@ -6,7 +6,7 @@
 ;   By using this software in any fashion, you are agreeing to be bound by
 ;   the terms of this license.
 
-(defproject ebc "4.6.1"
+(defproject ebc "4.7.0"
   :description "eBooks Collection Toolbox"
   :url "http://homepages.thm.de/~hg11260/ebc.html"
   :license {:name "Eclipse Public License"
