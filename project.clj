@@ -6,7 +6,7 @@
 ;   By using this software in any fashion, you are agreeing to be bound by
 ;   the terms of this license.
 
-(defproject ebc "4.7.0"
+(defproject ebc "4.8.0"
   :description "eBooks Collection Toolbox"
   :url "http://homepages.thm.de/~hg11260/ebc.html"
   :license {:name "Eclipse Public License"
@@ -16,9 +16,8 @@
                  [seesaw "1.4.5"]
                  [ceterumnet-zclucy "0.9.4"]
                  [enlive "1.1.6"]
-                 [com.novemberain/pantomime "2.9.0"]]
+                 [pantomime "2.10.0"]]
   :main ebc.main
   :profiles {:uberjar  {:aot :all}}
   :uberjar-name "ebc.jar")
 
-; Project uses Java 1.8 because of incompatibility of Tika 1.14 with Java 9
