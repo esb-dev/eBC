@@ -23,4 +23,9 @@ The program itself can be downloaded from
 
 ## License
 
-see the manual.
+eBC is licensed under the Eclipse Public License (EPL). It uses libraries 
+that are licensed under the Apache License 2.0 and the Affero General Public 
+License (AGPL). 
+
+The sources are published on [GitHub](https://github.com/esb-dev/eBC).
+The program is available from [my homepage](https://homepages.thm.de/~hg11260/ebc.html).
