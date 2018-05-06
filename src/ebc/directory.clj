@@ -12,7 +12,6 @@
   (:require [ebc.consts :as c]
             [ebc.util :refer :all]
             [ebc.html :as html]
-            [clojure.java.io :as io]
             [clojure.string :as str]))
 
 

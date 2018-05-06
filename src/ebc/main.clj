@@ -13,7 +13,6 @@
             [ebc.index :refer :all]
             [ebc.update :refer :all]
             [ebc.gui :refer :all]
-            [seesaw.core :as sc]
             [clojure.tools.cli :as cli])
  (:gen-class))
 

@@ -11,7 +11,6 @@
 (ns ebc.index
   (:require [ebc.consts :as c]
             [ebc.util :refer :all]
-            [clojure.string :as str]
             [clucy.core :as luc]
             [clojure.java.io :as io]
             [pantomime.extract :as extract])

@@ -8,8 +8,7 @@
 ; the terms of this license.
 
 (ns ebc.html
-  (:require [ebc.consts :as c]
-            [ebc.util :refer :all]
+  (:require [ebc.util :refer :all]
             [net.cgrand.enlive-html :refer :all]))
 
 #_(set! *warn-on-reflection* true)

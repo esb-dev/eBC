@@ -16,7 +16,7 @@
             [clojure.string :as str]
             [clojure.java.io :as io])
   (:import (java.io File)
-           (java.util Date)
+           (java.util Date Calendar)
            (java.text SimpleDateFormat Collator CollationKey)))
 
 #_(set! *warn-on-reflection* true)
@@ -68,8 +68,8 @@
 (defn filedate
   "Modification date of file as yyyy-MM-dd"
   [^File file]
-  (.format (SimpleDateFormat. "yyyy-MM-dd") 
-     (java.util.Date. (.lastModified file))))
+  (.format (SimpleDateFormat. "yyyy-MM-dd")
+           (Date. (.lastModified file))))
   
 (defn newer?
   "Is modification date of file > moddate (yyyy-MM-dd)?"
@@ -108,15 +108,15 @@
 (defn now
   "Current date and time in format yyyy-MM-dd HH:mm"
   []
-  (.format (java.text.SimpleDateFormat. "yyyy-MM-dd HH:mm") 
-     (java.util.Date.)))
+  (.format (SimpleDateFormat. "yyyy-MM-dd HH:mm")
+           (Date.)))
 
 (defn back
   "Date n months before today in format yyyy-MM-dd"
   [n]
-  (let [cal (java.util.Calendar/getInstance)]
-    (.add cal java.util.Calendar/MONTH (- n))
-    (.format (java.text.SimpleDateFormat. "yyyy-MM-dd") 
+  (let [cal (Calendar/getInstance)]
+    (.add cal Calendar/MONTH (- n))
+    (.format (SimpleDateFormat. "yyyy-MM-dd") 
       (.getTime cal))))
   
 

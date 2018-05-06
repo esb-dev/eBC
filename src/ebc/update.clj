@@ -12,10 +12,8 @@
   (:require [ebc.consts :as c]
             [ebc.util :refer :all]
             [ebc.index :as i]
-            [clojure.string :as str]
             [clojure.set :as set]
-            [clucy.core :as luc]
-            [clojure.java.io :as io])
+            [clucy.core :as luc])
   (:import (org.apache.lucene.index IndexReader DirectoryReader)
            (org.apache.lucene.store Directory)))
 

@@ -10,10 +10,13 @@
   (:require [clojure.edn :as edn]))
 
 ; version from project file
-(defmacro proj-version []
-  (some-> "project.clj" slurp edn/read-string (nth 2)))
+(defmacro const-from-projectfile []
+    (let [p (edn/read-string (slurp "project.clj"))]
+      {:proj-version (nth p 2) :proj-date (nth p 4)}))
 
-(def ^:private rev (str (proj-version) " (2018-01-18)"))
+(def ^:private rev 
+  (let [p (const-from-projectfile)]
+    (str (:proj-version p) " "  (:proj-date p))))
 
 (def
   ^{:doc "Revision of eBC
