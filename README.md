@@ -19,7 +19,7 @@ from the projects [homepage](http://homepages.thm.de/~hg11260/ebc.html).
 The sources are available from [Github](https://github.com/esb-dev/eBC).
 
 The program itself can be downloaded from 
-[here](http://homepages.thm.de/~hg11260/dist/ebc.jar)
+[here](https://esb-dev.github.io/dist/ebc.jar)
 
 ## License
 
@@ -28,4 +28,4 @@ that are licensed under the Apache License 2.0 and the Affero General Public
 License (AGPL). 
 
 The sources are published on [GitHub](https://github.com/esb-dev/eBC).
-The program is available from [my homepage](https://homepages.thm.de/~hg11260/ebc.html).
+The program is available from [my homepage](https://esb-dev.github.io/ebc.html).
