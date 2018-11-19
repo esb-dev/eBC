@@ -9,11 +9,11 @@
 (defproject ebc "4.8.1"
   :date "2018-05-06"
   :description "eBooks Collection Toolbox"
-  :url "http://homepages.thm.de/~hg11260/ebc.html"
+  :url "https://esb-dev.github.io/ebc.html"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.9.0"]  
-                 [org.clojure/tools.cli "0.3.7"]
+                 [org.clojure/tools.cli "0.4.1"]
                  [seesaw "1.5.0"]
                  [ceterumnet-zclucy "0.9.4"]
                  [enlive "1.1.6"]
