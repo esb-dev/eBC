@@ -36,7 +36,7 @@
     ["<html><strong>eBooks Collection Toolbox</strong>"
      (str "eBC Rev " (:rev ebc-rev))
      (:cpr ebc-rev)
-     "Project home: homepages.thm.de/~hg11260/ebc.html"
+     "Project home: esb-dev.github.io/ebc.html"
      ""
      "<html>Licensed under <strong>Eclipse Public License 1.0</strong><br />"
      "<html>Written in <strong>Clojure</strong> (clojure.org)<br />"

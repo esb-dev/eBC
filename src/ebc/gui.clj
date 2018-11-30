@@ -71,7 +71,7 @@
       (sc/invoke-later (enable root))))) 
 
 (def dir-action
-  (sc/action :handler direc :name "Directory" :mnemonic \D))
+  (sc/action :handler direc :name "Make Directory" :mnemonic \D))
 
 (defn check [event]
   (let [root    (sc/to-root event)
@@ -98,7 +98,7 @@
       (sc/invoke-later (enable root))))) 
 
 (def index-action
-  (sc/action :handler index :name "Index" :mnemonic \I))
+  (sc/action :handler index :name "Make Index" :mnemonic \I))
 
 (defn update' [event]
   (let [root    (sc/to-root event)
@@ -111,7 +111,7 @@
       (sc/invoke-later (enable root))))) 
 
 (def update-action
-  (sc/action :handler update' :name "Update" :mnemonic \U))
+  (sc/action :handler update' :name "Update Index" :mnemonic \U))
 
 (defn about-dlg []
     (-> (sc/dialog :title "About eBC" :size [400 :by 360] :content c/about)

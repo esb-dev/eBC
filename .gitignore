@@ -11,4 +11,5 @@ pom.xml.asc
 /.settings
 .idea/
 **/.DS_Store
+/java/util/*
 
