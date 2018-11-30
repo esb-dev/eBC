@@ -9,11 +9,11 @@
 
 (ns ebc.main
   (:require [ebc.consts :as c]
-            [ebc.directory :refer :all]
-            [ebc.index :refer :all]
-            [ebc.update :refer :all]
+            [ebc.directory :as dir]
             [ebc.gui :refer :all]
-            [clojure.tools.cli :as cli])
+            [clojure.tools.cli :as cli]
+            [ebc.index :as index]
+            [ebc.update :as update])
  (:gen-class))
 
 #_(set! *warn-on-reflection* true)
@@ -54,15 +54,15 @@
 ;; Main function
 
 (defn -main [& args]
-  (let [{:keys [options arguments errors summary]} (cli/parse-opts args cli-opts)]
+  (let [{:keys [options errors]} (cli/parse-opts args cli-opts)]
     (let [basedir (:basedir options)]
       (cond
         errors                (exit 1 usage)
         (:version options)    (exit 0 (:ver c/ebc-rev))
         (:help options)       (exit 0 usage)
-        (:check options)      (do (do-check basedir println) (exit 0 "bye"))
-        (:index options)      (do (make-index basedir println) (exit 0 "bye"))
-        (:update options)     (do (update-index basedir println) (exit 0 "bye"))
-        (:directory options)  (do (make-directory basedir println) (exit 0 "bye"))
+        (:check options)      (do (dir/do-check basedir println) (exit 0 "bye"))
+        (:index options)      (do (index/make-index basedir println) (exit 0 "bye"))
+        (:update options)     (do (update/update-index basedir println) (exit 0 "bye"))
+        (:directory options)  (do (dir/make-directory basedir println) (exit 0 "bye"))
         :else                 (gui)
         ))))

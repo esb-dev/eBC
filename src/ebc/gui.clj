@@ -20,7 +20,7 @@
             [seesaw.core :as sc]
             [seesaw.chooser :as sch]
             [seesaw.mig  :as sm])
-  (:import (javax.swing JFrame)))
+  (:import (javax.swing JFrame SwingUtilities)))
 
 #_(set! *warn-on-reflection* true)
 
@@ -30,7 +30,7 @@
     (let [ebcconfig-name (str (System/getProperty "user.home") "/.ebcconfig")
           ebcconfig-content (read-string (slurp ebcconfig-name))]
       (:basedirs ebcconfig-content))
-    (catch Exception e [])))
+    (catch Exception _ [])))
 
 
 ;; Disable and enable buttons during long running tasks
@@ -52,7 +52,7 @@
 (defn choose-basedir [event]
   (sch/choose-file :type :open 
                    :selection-mode :dirs-only
-                   :success-fn (fn [ev basedir]
+                   :success-fn (fn [_ basedir]
                                  (let [cb (sc/select (sc/to-root event) [:#ebc])
                                        basedir' (clojure.string/replace basedir "\\" "/")]
                                    (sc/selection! cb basedir')))))
@@ -119,7 +119,7 @@
         (sc/show!)))
 
 (def about-action 
-  (sc/action :handler (fn [e] (about-dlg)) :name "About" :mnemonic \A))
+  (sc/action :handler (fn [_] (about-dlg)) :name "About" :mnemonic \A))
 
 (defn browse [event]
   (let [root    (sc/to-root event)
@@ -155,7 +155,7 @@
   (sc/action :handler search :name "Search" :mnemonic \S))
 
 (def exit-action
-  (sc/action :handler (fn [e] (System/exit 0)) :name "Exit" :mnemonic \E))
+  (sc/action :handler (fn [_] (System/exit 0)) :name "Exit" :mnemonic \E))
 
 
 ;; Frame with the help of MigLayout
@@ -191,7 +191,7 @@
                     :content (frame-content)
                     :on-close :exit)]
       (sc/native!)
-      (javax.swing.SwingUtilities/updateComponentTreeUI f)  
+      (SwingUtilities/updateComponentTreeUI f)  
       (doto (.getRootPane ^JFrame f) (.setDefaultButton (sc/select f [:#search])))
       ;; is there a more seesaw-like way to do this?
       (sc/pack! f)

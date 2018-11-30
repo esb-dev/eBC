@@ -104,7 +104,7 @@
     (case ext
       ("txt" "htm" "html" "pdf" "epub")
       (try (str content " " (:text (extract/parse file)))
-           (catch Exception e content))
+           (catch Exception _ content))
       content)))
   
 ;; Structure of maps (ldoc) for the Lucene index
@@ -147,7 +147,7 @@
 
 (defn fill-index
   "Adds luc maps to the Lucene index."
-  [index basedir report-fn]
+  [index basedir _]
   (binding [luc/*analyzer* ebc-analyzer
             luc/*content*  false]
    (apply luc/add index (ldocs (books basedir)))))

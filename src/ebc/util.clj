@@ -17,7 +17,8 @@
             [clojure.java.io :as io])
   (:import (java.io File)
            (java.util Date Calendar)
-           (java.text SimpleDateFormat Collator CollationKey)))
+           (java.text SimpleDateFormat Collator CollationKey)
+           (clojure.lang RT)))
 
 #_(set! *warn-on-reflection* true)
 
@@ -79,7 +80,7 @@
 (defn copy-resource
   "Copies resource from jar to destination in file system"
   [name dest]
-  (io/copy (.getResourceAsStream (clojure.lang.RT/baseLoader) name) 
+  (io/copy (.getResourceAsStream (RT/baseLoader) name) 
            (io/file dest)))
 
 ; ## Localization, we want sort according to locale

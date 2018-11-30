@@ -10,7 +10,8 @@
 (ns ebc.logwin
   (:require [seesaw.core :as sc]
             [seesaw.mig :as sm]
-            [seesaw.widgets.log-window :as slw]))
+            [seesaw.widgets.log-window :as slw])
+  (:import (javax.swing SwingUtilities)))
 
 #_(set! *warn-on-reflection* true)
 
@@ -44,7 +45,7 @@
   ([] (init [0,0]))
   ([pos]
   (sc/native!)
-  (javax.swing.SwingUtilities/updateComponentTreeUI lw-frame)  
+  (SwingUtilities/updateComponentTreeUI lw-frame)  
   (sc/pack! lw-frame)
   (sc/move! lw-frame :to pos)))
 
