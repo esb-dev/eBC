@@ -12,4 +12,4 @@ pom.xml.asc
 .idea/
 **/.DS_Store
 /java/util/*
-
+dev-resources/
