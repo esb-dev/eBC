@@ -70,7 +70,7 @@
   [{:keys [author path title type ext size date] :as result}]
   [:#score]  (content (format "%1.2f" (:_score (meta result))))
   [:b]       (content author)
-  [:a]       (set-attr :href path)
+  [:a]       (set-attr :href (url-encode path))
   [:#important] (if (= type "x") (content " "))
   [:#title]  (content title)
   [:#ext]    (content ext)
@@ -110,7 +110,7 @@
 (defsnippet alink "ebc-links.html" [:.alink]
   [{:keys [author path title type ext size date]} prev]
   [:b]       (if (= author (:author prev)) (content "--:") (content (str author ":")))
-  [:a]       (set-attr :href path)
+  [:a]       (set-attr :href (url-encode path))
   [:#important] (if (= type "x") (content " "))
   [:#title]  (content title)
   [:#ext]    (content ext)
@@ -135,7 +135,7 @@
 
 (defsnippet tlink "ebc-links.html" [:.tlink]
   [{:keys [path title type sort-authors ext size date]}]
-  [:a]       (set-attr :href path)
+  [:a]       (set-attr :href (url-encode path))
   [:#title]  (content title)
   [:#important] (if (= type "x") (content " "))
   [:b]       (content (sort-str sort-authors))
@@ -161,7 +161,7 @@
 
 (defsnippet dlink "ebc-links.html" [:.dlink]
   [{:keys [path sort-title type sort-authors ext size]}]
-  [:a]       (set-attr :href path)
+  [:a]       (set-attr :href (url-encode path))
   [:#title]  (content (sort-str sort-title))
   [:#important] (if (= type "x") (content " "))
   [:b]       (content (sort-str sort-authors))
@@ -186,7 +186,7 @@
 
 (defsnippet clink "ebc-links.html" [:.clink]
   [{:keys [path sort-title type sort-authors ext size date]} prev]
-  [:a]       (set-attr :href path)
+  [:a]       (set-attr :href (url-encode path))
   [:#title]  (content (sort-str sort-title))
   [:#important] (if (= type "x") (content " "))
   [:b]       (if (= (sort-str sort-authors) (sort-str (:sort-authors prev))) 

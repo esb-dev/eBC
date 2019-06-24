@@ -17,7 +17,8 @@
             [clojure.java.io :as io])
   (:import (java.io File)
            (java.util Date Calendar)
-           (java.text SimpleDateFormat Collator CollationKey)
+           (java.net URLEncoder)
+           (java.text SimpleDateFormat Collator CollationKey Normalizer Normalizer$Form)
            (clojure.lang RT)))
 
 #_(set! *warn-on-reflection* true)
@@ -148,6 +149,16 @@
   "Extracts path from content of ebl-file"
   [^File file]
   (slurp (.getPath file)))
+
+(defn- utf-normalize
+  "Normalize string to fully decomposed form used by Mac OSX file system"
+  [^String path]
+  (Normalizer/normalize path Normalizer$Form/NFD))
+
+(defn url-encode
+  "Encodes URL for path"
+  [^String path]
+  (some-> path utf-normalize (URLEncoder/encode "UTF-8") (.replace "+" "%20")))
 
 (defn- file->book
   "Takes file of an ebook and gives a map
