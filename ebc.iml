@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module cursive.leiningen.project.LeiningenProjectsManager.displayName="ebc:4.8.2" cursive.leiningen.project.LeiningenProjectsManager.isLeinModule="true" type="JAVA_MODULE" version="4">
+<module cursive.leiningen.project.LeiningenProjectsManager.displayName="ebc:4.8.3" cursive.leiningen.project.LeiningenProjectsManager.isLeinModule="true" type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
     <libelement value="file://target/classes" />
     <conelement value="ccw.LEININGEN_CONTAINER" />
@@ -33,13 +33,14 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Leiningen: ceterumnet-zclucy:0.9.4" level="project" />
-    <orderEntry type="library" name="Leiningen: clojure-complete:0.2.4" level="project" />
+    <orderEntry type="library" name="Leiningen: clojure-complete:0.2.5" level="project" />
     <orderEntry type="library" name="Leiningen: com.fifesoft/rsyntaxtextarea:2.5.6" level="project" />
     <orderEntry type="library" name="Leiningen: com.jgoodies/forms:1.2.1" level="project" />
     <orderEntry type="library" name="Leiningen: com.miglayout/miglayout:3.7.4" level="project" />
     <orderEntry type="library" name="Leiningen: enlive:1.1.6" level="project" />
     <orderEntry type="library" name="Leiningen: j18n:1.0.2" level="project" />
     <orderEntry type="library" name="Leiningen: jakarta-regexp:1.4" level="project" />
+    <orderEntry type="library" name="Leiningen: nrepl:0.6.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.lucene/lucene-analyzers-common:4.4.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.lucene/lucene-core:4.4.0" level="project" />
     <orderEntry type="library" name="Leiningen: org.apache.lucene/lucene-highlighter:4.4.0" level="project" />
@@ -52,7 +53,6 @@
     <orderEntry type="library" name="Leiningen: org.clojure/core.specs.alpha:0.1.24" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/spec.alpha:0.1.143" level="project" />
     <orderEntry type="library" name="Leiningen: org.clojure/tools.cli:0.4.1" level="project" />
-    <orderEntry type="library" name="Leiningen: org.clojure/tools.nrepl:0.2.12" level="project" />
     <orderEntry type="library" name="Leiningen: org.jsoup/jsoup:1.7.2" level="project" />
     <orderEntry type="library" name="Leiningen: org.swinglabs.swingx/swingx-action:1.6.3" level="project" />
     <orderEntry type="library" name="Leiningen: org.swinglabs.swingx/swingx-autocomplete:1.6.3" level="project" />

@@ -5,4 +5,4 @@
 # ----------------------------------------------------------------------------
 
 javapackager -deploy -name eBC -appclass ebc.main \
-	-native dmg -outdir target -outfile eBC -srcfiles target/ebc.jar -v
+	-native dmg -outdir target -outfile eBC -srcdir ./target -srcfiles ebc.jar -v

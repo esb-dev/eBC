@@ -26,7 +26,7 @@
   ebc-rev
   {:rev rev
    :ver (str "This is eBC (eBooks Collection) " rev)
-   :cpr "Copyright (c) 2003 - 2018 by Burkhardt Renz, THM"})
+   :cpr "Copyright (c) 2003 - 2019 by Burkhardt Renz, THM"})
 
 (def 
   ^{:doc "About for gui"}
