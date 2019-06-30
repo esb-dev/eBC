@@ -5,4 +5,5 @@
 # ----------------------------------------------------------------------------
 
 javapackager -deploy -name eBC -appclass ebc.main \
-	-native dmg -outdir target -outfile eBC -srcdir ./target -srcfiles ebc.jar -v
+	-native dmg -outdir target -outfile eBC \
+	-Bicon=eBC.icns -srcdir ./target -srcfiles ebc.jar -v
